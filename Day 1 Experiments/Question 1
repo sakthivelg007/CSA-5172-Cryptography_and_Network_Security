@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <ctype.h>
+
+void encrypt(char message[], int shift);
+
+int main() {
+    char message[100];
+    int key;
+
+    printf("Enter message to encrypt: ");
+    fgets(message, sizeof(message), stdin);
+
+    printf("Enter shift (1-25): ");
+    scanf("%d", &key);
+
+    encrypt(message,key);
+
+    printf("Encrypted message: %s\n", message);
+
+    return 0;
+}
+
+void encrypt(char message[], int key) {
+    int i = 0;
+
+    while (message[i] != '\0') {
+        char ch = message[i];
+
+        if (isalpha(ch)) {
+            char base = isupper(ch) ? 'A' : 'a';
+            ch = (ch - base + key) % 26 + base;
+        }
+
+        message[i] = ch;
+        i++;
+    }
+}
