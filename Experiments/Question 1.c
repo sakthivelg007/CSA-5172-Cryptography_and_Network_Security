@@ -10,8 +10,7 @@ int main() {
 
     printf("Enter a key (1-25): ");
     scanf("%d", &key);
-
-    // Encryption
+    
     for (i = 0; message[i] != '\0'; i++) 
     {
         if (isalpha(message[i])) 
@@ -27,8 +26,7 @@ int main() {
     }
 
     printf("Encrypted Message: %s\n", message);
-
-    // Decryption
+    
     for (i = 0; message[i] != '\0'; i++) 
     {
         if (isalpha(message[i])) 
